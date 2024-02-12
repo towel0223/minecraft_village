@@ -1,0 +1,5 @@
+name: coin_shop
+version: '1.0-SNAPSHOT'
+main: towel.coin_shop.Coin_shop
+api-version: '1.20'
+depends: [Citizens]
