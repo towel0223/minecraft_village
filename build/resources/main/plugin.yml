@@ -3,3 +3,15 @@ version: '1.0-SNAPSHOT'
 main: towel.coin_shop.Coin_shop
 api-version: '1.20'
 depends: [Citizens]
+commands:
+  add:
+    description: 돈을 더해준당
+    aliases: [더하기,추가]
+    permission: towel_op
+    permission-message: 펄미션 권한이 없어 사용할 수 없습니다.
+    usage: /더하기 <양>
+permissions:
+  towel_op:
+    description: 오피중 오피 타올오피
+    default: op
+

@@ -49,7 +49,7 @@ public class npctest implements Listener {
     public void insertPlayer(PlayerJoinEvent e) throws SQLException {
         JDBConnector connector=Coin_shop.getDB();
         ResultSet rs=connector.searchPlayer(e.getPlayer().getUniqueId());
-        if(!rs.next())
+        if(rs==null)
         connector.insertPlayer(e.getPlayer().getUniqueId());
     }
     @EventHandler

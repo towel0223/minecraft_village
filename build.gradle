@@ -55,7 +55,7 @@ processResources {
 
 jar {
     archiveFileName = 'testplugin.jar'
-    destinationDirectory = file(  "C:\\Users\\hazed\\OneDrive\\Desktop\\마크\\server\\1.20.4\\plugins"
+    destinationDirectory = file(  "C:\\Users\\Administrator\\OneDrive\\Desktop\\minecraft\\server\\1.20.4\\plugins"
     )
     manifest {
         attributes 'Main-Class' : 'towel.coin_shop.Coin_shop'
