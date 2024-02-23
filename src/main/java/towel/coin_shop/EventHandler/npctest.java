@@ -9,6 +9,7 @@ import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
+import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerMoveEvent;
 import org.bukkit.inventory.Inventory;
@@ -25,6 +26,7 @@ import java.util.List;
 public class npctest implements Listener {
 
     ItemStack copper_coin=new ItemStack(Material.DIAMOND);
+    Inventory inventory;
     ArrayList<ItemMeta> copper_coin_ItemMeta=
             new ArrayList<>(List.of
                             (copper_coin.getItemMeta(),
@@ -63,7 +65,7 @@ public class npctest implements Listener {
                 ChatColor.BOLD + "마을귀환서"));
         if(1==e.getNPC().getId()){
             Player player=e.getClicker();
-            Inventory inventory=Bukkit.createInventory(player,54, "\uE111"+ChatColor.WHITE+"\uE000");
+            inventory=Bukkit.createInventory(player,54, "\uE111"+ChatColor.WHITE+"\uE000");
             player.openInventory(inventory);
                 copper_coin_ItemMeta.get(0).setLore(buyNore("100"));
                 copper_coin_ItemMeta.get(1).setLore(buyNore("1000"));
@@ -76,6 +78,21 @@ public class npctest implements Listener {
                 copper_coin_ItemMeta.get(i-1).setDisplayName(coin_name.get(i-1));
                 copper_coin.setItemMeta(copper_coin_ItemMeta.get(i-1));
                 inventory.setItem(10+i,copper_coin);
+            }
+        }
+
+    }
+    @EventHandler
+    public void coinClick(InventoryClickEvent e){
+        if(e.getInventory()==inventory){
+            e.setCancelled(true);
+            if(e.isLeftClick()){
+
+                   if(e.getCurrentItem().getType()==copper_coin.getType()){
+                       e.getWhoClicked().sendMessage("asdf");
+                   }
+
+
             }
         }
 

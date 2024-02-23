@@ -13,7 +13,7 @@ public class JDBConnector {
     public Connection getConnection(){
         if(connection!=null)
         return connection;
-        String url="jdbc:mysql://localhost:3306/towel_village";
+        String url="jdbc:mysql://localhost:3306/mincraft_towel_village";
         String id="root";
         String pw="1234";
         try{
